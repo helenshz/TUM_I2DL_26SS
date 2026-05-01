@@ -1,0 +1,5 @@
+datasets/
+exercise_03/exercise_code/data/datasets/
+*.p
+__pycache__/
+output/

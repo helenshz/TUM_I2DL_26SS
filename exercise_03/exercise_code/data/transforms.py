@@ -36,8 +36,9 @@ class RescaleTransform:
         #       but return a copy with ret_image                               #                                      
         ########################################################################
         
-
-        pass
+        intput_range = self._data_max - self._data_min
+        output_range = self.max - self.min
+        ret_image = (image - self._data_min) / intput_range * output_range + self.min
 
         ########################################################################
         #                           END OF YOUR CODE                           #
@@ -64,8 +65,10 @@ def compute_image_mean_and_std(images):
     # test yourself.                                                       #
     ########################################################################
     
-
-    pass
+    # compress the first three dimensions (N, H, W) into one dimension
+    # so that we have a 2D array of shape (N*H*W, C)
+    mean = np.mean(images, axis=(0, 1, 2)) # calculate the mean of the images across the first three dimensions (N, H, W), resulting in a numpy array of shape (C,)
+    std = np.std(images, axis=(0, 1, 2)) # calculate the standard deviation of the images across the first three dimensions (N, H, W), resulting in a numpy array of shape (C,)
 
     ########################################################################
     #                           END OF YOUR CODE                           #
@@ -99,7 +102,7 @@ class NormalizeTransform:
         #   - divide by standard deviation                                     #
         ########################################################################
 
-        pass
+        images = (images-self.mean) / self.std
 
         ########################################################################
         #                           END OF YOUR CODE                           #

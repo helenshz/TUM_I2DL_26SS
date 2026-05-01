@@ -44,8 +44,25 @@ class DataLoader:
         #     in section 1 of the notebook.                                    #
         ########################################################################
         
+        
+        if self.shuffle:
+            index_iterator = iter(np.random.permutation(len(self.dataset)))  # define indices as iterator
+        else:
+            index_iterator = iter(range(len(self.dataset)))  # define indices as iterator
 
-        pass
+        batch = []
+        
+        for i in index_iterator:  # iterate over indices using the iterator
+            batch.append(self.dataset[i])
+            
+            if len(batch) == self.batch_size:
+                keys = batch[0].keys()
+                yield {key: np.array([sample[key] for sample in batch]) for key in keys}
+                batch = []
+            
+        if len(batch) > 0 and not self.drop_last:
+            keys = batch[0].keys()
+            yield {key: np.array([sample[key] for sample in batch]) for key in keys}
 
         ########################################################################
         #                           END OF YOUR CODE                           #
@@ -61,7 +78,10 @@ class DataLoader:
         ########################################################################
         
 
-        pass
+        if self.drop_last or len(self.dataset) % self.batch_size == 0:
+            length = len(self.dataset) // self.batch_size
+        else:
+            length = len(self.dataset) // self.batch_size + 1
 
         ########################################################################
         #                           END OF YOUR CODE                           #

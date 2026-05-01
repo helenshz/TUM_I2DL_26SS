@@ -80,7 +80,7 @@ class ImageFolderDataset(Dataset):
         # Return the length of the dataset (number of images)                  #
         ########################################################################
 
-        pass
+        length = len(self.images)
 
         ########################################################################
         #                           END OF YOUR CODE                           #
@@ -121,8 +121,11 @@ class ImageFolderDataset(Dataset):
         #  self.labels and self.images. DO NOT call self.make_dataset() again! #    
         ########################################################################
    
-
-        pass
+        image = self.load_image_as_numpy(self.images[index]) # load the image randomly from the dataset using the given index, O(1) operation
+        label = self.labels[index]
+        if self.transform is not None:
+            image = self.transform(image) # apply the __call__ function of the transform to the image, if the transform is defined (not None)
+        data_dict = {"image": image, "label": label}
 
         ########################################################################
         #                           END OF YOUR CODE                           #
