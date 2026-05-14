@@ -14,15 +14,15 @@ This repository contains the programming exercises and learning notes for the **
 * **Student Tutors**: Shaotong Chen, Han Wu, Hongtai Yuan, Jinxin Ai, Estevao Gomes, Ignacio Dassori, Youssef Youssef
 
 ## Syllabus
-Lecture 1: Introduction to the lecture, Deep Learning, Machine Learning.
-Lecture 2: Machine Learning Basics, Linear regression, Maximum Likelihood
-Lecture 3: Introduction to Neural Networks, Computational Graphs
-Lecture 4: Optimization and Backpropagation
-Lecture 5: Scaling Optimization to large Data, Stochastic Gradient Descent
-Lecture 6: Training Neural Networks I
-Lecture 7: Training Neural Networks II
-Lecture 8: Training Neural Networks III
-Lecture 9: Introduction to CNNs
-Lecture 10: CNNs architectures 
-Lecture 11: Recurrent Neural Networks (RNNs) 
-Lecture 12: Transformers
+* Lecture 1: Introduction to the lecture, Deep Learning, Machine Learning.
+* Lecture 2: Machine Learning Basics, Linear regression, Maximum Likelihood
+* Lecture 3: Introduction to Neural Networks, Computational Graphs
+* Lecture 4: Optimization and Backpropagation
+* Lecture 5: Scaling Optimization to large Data, Stochastic Gradient Descent
+* Lecture 6: Training Neural Networks I
+* Lecture 7: Training Neural Networks II
+* Lecture 8: Training Neural Networks III
+* Lecture 9: Introduction to CNNs
+* Lecture 10: CNNs architectures 
+* Lecture 11: Recurrent Neural Networks (RNNs) 
+* Lecture 12: Transformers
