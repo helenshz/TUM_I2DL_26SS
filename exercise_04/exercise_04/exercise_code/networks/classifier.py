@@ -64,7 +64,9 @@ class Classifier(Network):
         #       The sigmoid is applied to the result of the affine step.       #
         ########################################################################
 
+        # affine layer
         s = np.dot(X, self.W) # (N x (D + 1)) dot ((D + 1) x 1) --> (N x 1)
+        # sigmoid layer
         z = self.sigmoid(s)
         self.cache = (X, z)
 
@@ -105,10 +107,10 @@ class Classifier(Network):
         ########################################################################
 
         X, z = self.cache
-        dz = z * (1 - z)
-        ds = dz * dout
+        dz = z * (1 - z) # Sigmoid 函数的导数等于它本身乘以 1 减去它本身。
+        ds = dz * dout # 激活步骤：逐元素相乘 
         Xt = X.T
-        dW = np.dot(Xt, ds)
+        dW = np.dot(Xt, ds) #全连接步骤：点乘
 
         ########################################################################
         #                           END OF YOUR CODE                           #
